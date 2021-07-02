@@ -25,6 +25,12 @@ class Database {
 
   }
 
+  public function total_revisions() {
+  $revision_count = $this->wpdb->get_var( "SELECT COUNT(*) FROM {$this->wpdb->prefix}posts where post_type = 'revision'" );
+  return $revision_count;
+
+  }
+
   // This prints user reg URl
   public function get_reg_url() {
   $reg_url = $this->wpdb->get_var( "SELECT * FROM {$this->wpdb->prefix}users WHERE ID = 1 ", 4 );
@@ -46,6 +52,8 @@ class Database {
 
 $new_connection = new Database();
 echo $new_connection->get_url();
+echo "<br>";
+echo $new_connection->total_revisions();
 echo "<br>";
 echo $new_connection->get_post_count();
 echo "<br>";
