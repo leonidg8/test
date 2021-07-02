@@ -38,7 +38,7 @@ class Database {
         SET ID = %d
         WHERE ID = $num
     ",
-        1, $num
+        5, $num
 ) );
   }
 }
